@@ -1,0 +1,37 @@
+#!/Applications/User/bin/python
+
+import os
+from shutil import copy
+
+inp = int(input('How many run folders would you like?: '))
+i = 1
+
+def replace_line(file_name, line_num, text):
+    lines = open(file_name, 'r').readlines()
+    lines[line_num] = text 
+    out = open(file_name, 'w')
+    out.writelines(lines)
+    out.close()
+
+gen = int(input('Which generation nodes would you like to use? i.e. 1,2,3,4,5: '))
+
+files = [f for f in os.listdir('.') if os.path.isfile(f)]
+
+if (0 < gen < 6):
+    gen_line = '#PBS -q gen{}\n'.format(gen)
+    replace_line(f, 2, gen_line)
+else:
+    error('Incorrect value entry!!!')
+
+while i <= inp:
+    path = 'run_{}'.format(i)
+    os.mkdir(path)
+    for f in files:
+        copy(f, path)
+        if f.endswith('.pbs'):
+            command = '/home/wcureton/RMCProfile_package/exe/rmcprofile rmcsp1_pristine > {}_out'.format(path)
+            replace_line(f, 7, command)
+    i = i + 1
+
+    
+
