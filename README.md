@@ -21,7 +21,7 @@ ________________________________________________________________________________
 2) Line 16 and 21 must be adjusted based on the cluster being used and corresponding language
 
 3) Line 32 is specific to my project, therefore, it must be adjusted to call the 'rmcprofile' command
-   where ever that may be for you and to give the stem name of your specific project. However, a few
+   wherever that may be for you and to give the stem name of your specific project. However, a few
    more lines could be added in order to generalize this process.
    
 _____________________________________________________________________________________________________
