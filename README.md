@@ -18,9 +18,9 @@ ________________________________________________________________________________
 1) Adjust the first line of the code based on where python is located. This can be determined by 
    typing the command: which python
    
-2) Line 16 and 21 must be adjusted based on the cluster being used and corresponding language
+2) Line 23 and 30 must be adjusted based on the cluster being used and corresponding language
 
-3) Line 32 is specific to my project, therefore, it must be adjusted to call the 'rmcprofile' command
+3) Line 43 is specific to my project, therefore, it must be adjusted to call the 'rmcprofile' command
    wherever that may be for you and to give the stem name of your specific project. However, a few
    more lines could be added in order to generalize this process.
    
