@@ -3,9 +3,15 @@
 import os
 from shutil import copy
 
+# Prompts user for number of directories to be made
 inp = int(input('How many run folders would you like?: '))
+
+# Initialize counter
 i = 1
 
+# Function that takes 3 inputs: name of the file, the number of the line to be deleted,
+# and the text that will replace the line. Function then opens file, reads the lines
+# then replaces the specified line with the text given
 def replace_line(file_name, line_num, text):
     lines = open(file_name, 'r').readlines()
     lines[line_num] = text 
@@ -13,16 +19,21 @@ def replace_line(file_name, line_num, text):
     out.writelines(lines)
     out.close()
 
+# Prompts user for the dired generation of nodes to be utilized in cluster runs.    
 gen = int(input('Which generation nodes would you like to use? i.e. 1,2,3,4,5: '))
 
+# Lists all files in current directory
 files = [f for f in os.listdir('.') if os.path.isfile(f)]
 
+# Checks user input and calls 'replace_line' if input is valid, gives error if not
 if (0 < gen < 6):
     gen_line = '#PBS -q gen{}\n'.format(gen)
     replace_line(f, 2, gen_line)
 else:
     error('Incorrect value entry!!!')
 
+# Loop that creates numbered run directories based on user input and also changes 
+# the screen output file name to- the name of the directory underscore out
 while i <= inp:
     path = 'run_{}'.format(i)
     os.mkdir(path)
