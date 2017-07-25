@@ -1,10 +1,10 @@
 # makefolders3 for cluster job submission
 _____________________________________________________________________________________________________
-# General Purpose of makefolders3:#  to make cluster job submission easier by automating the process of
+General Purpose of makefolders3:  to make cluster job submission easier by automating the process of
                                   making run directories, filling those directories with all of the 
                                   necessary files, and adjusting the job submission script
-_____________________________________________________________________________________________________
-# Detailed description of makefolders3: it is the third iteration of a python script that-
+_____________________________________________________________________________________________________ 
+Detailed description of makefolders3: it is the third iteration of a python script that-
   * Generates a user specified number of run directories
 
   * Fills those directories with copies of all of the files in the current working directory
