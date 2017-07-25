@@ -1,4 +1,4 @@
-# RMC_Stuff
+# makefolders3 for cluster job submission
 _____________________________________________________________________________________________________
 General Purpose of makefolders3:  to make cluster job submission easier by automating the process of
                                   making run directories, filling those directories with all of the 
