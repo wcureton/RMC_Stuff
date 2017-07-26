@@ -38,10 +38,10 @@ while i <= inp:
     path = 'run_{}'.format(i)
     os.mkdir(path)
     for f in files:
-        copy(f, path)
         if f.endswith('.pbs'):
             command = '/home/wcureton/RMCProfile_package/exe/rmcprofile rmcsp1_pristine > {}_out'.format(path)
             replace_line(f, 7, command)
+        copy(f, path)
     i = i + 1
 
     
