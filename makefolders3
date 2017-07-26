@@ -26,11 +26,12 @@ gen = int(input('Which generation nodes would you like to use? i.e. 1,2,3,4,5: '
 files = [f for f in os.listdir('.') if os.path.isfile(f)]
 
 # Checks user input and calls 'replace_line' if input is valid, gives error if not
-if (0 < gen < 6):
-    gen_line = '#PBS -q gen{}\n'.format(gen)
-    replace_line(f, 2, gen_line)
-else:
-    error('Incorrect value entry!!!')
+if f.endswith('.pbs'):
+    if (0 < gen < 6):
+        gen_line = '#PBS -q gen{}\n'.format(gen)
+        replace_line(f, 2, gen_line)
+    else:
+        error('Incorrect value entry!!!')
 
 # Loop that creates numbered run directories based on user input and also changes 
 # the screen output file name to- the name of the directory underscore out
