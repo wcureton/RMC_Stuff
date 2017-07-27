@@ -25,6 +25,10 @@ gen = int(input('Which generation nodes would you like to use? i.e. 1,2,3,4,5: '
 # Lists all files in current directory
 files = [f for f in os.listdir('.') if os.path.isfile(f)]
 
+# Obtains the stem name from the rmc6f file
+for file in [f for f in os.listdir('.') if f.endswith('.rmc6f')]:
+    stem_name, rmc6f_ext = os.path.splitext(file) # setting stem_name equal to basename of .rmc6f file
+
 # Checks user input and calls 'replace_line' if input is valid, gives error if not
 if f.endswith('.pbs'):
     if (0 < gen < 6):
@@ -40,7 +44,7 @@ while i <= inp:
     os.mkdir(path)
     for f in files:
         if f.endswith('.pbs'):
-            command = '/home/wcureton/RMCProfile_package/exe/rmcprofile rmcsp1_pristine > {}_out'.format(path)
+            command = '/home/wcureton/RMCProfile_package/exe/rmcprofile {} > {}_out'.format(stem_name, path)
             replace_line(f, 7, command)
         copy(f, path)
     i = i + 1
