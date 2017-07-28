@@ -1,4 +1,5 @@
 import os
+import time
 
 run_folders = 0
 for item in os.listdir(os.curdir):
@@ -12,3 +13,4 @@ while run_n <= run_folders:
 		file_path = os.path.join(run_dir,file)
 		os.system('qsub {}'.format(file_path))
 	run_n += 1
+	time.sleep(2)
