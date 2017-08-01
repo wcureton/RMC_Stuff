@@ -10,7 +10,8 @@ run_n=1
 while run_n <= run_folders:
 	run_dir = os.path.join(os.curdir, 'run_{}'.format(run_n)) # setting path for run folder
 	for file in [f for f in os.listdir(run_dir) if f.endswith('.pbs')]:
-		file_path = os.path.join(run_dir,file)
-		os.system('qsub {}'.format(file_path))
+		os.chdir(run_dir)
+		os.system('qsub {}'.format(file))
+		os.chdir('..')
 	run_n += 1
 	time.sleep(2)
