@@ -1,3 +1,13 @@
+# This script may help expidite the STOG function when reducing total scattering data
+# As currently written, calling "python STOG_parser.py" will execute STOG, plot g(r),
+# and ask the user if they would like to adjust the scale. If so, the program will loop
+# again with the new scale. This function can be easily changed to quickly modify other
+# variables (e.g. r-max of the Fourier filter) or view other plots. This script will
+# output files (in addition to those created automatically by STOG) such as .qsq (Q[S(Q)-1]),
+# D(r), and T(r)
+
+
+
 import os
 import pandas as pd
 import numpy as np
